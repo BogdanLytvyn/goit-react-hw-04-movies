@@ -1,92 +1,43 @@
-import React from 'react';
-import { Route, NavLink, Switch } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import MovieDetailsPage from './pages/MovieDetailsPage';
-import MoviesPage from './pages/MoviesPage';
-import NotFound from './pages/NotFound';
+import { React, Suspense, lazy } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import AppBarMovie from './appBar/AppBarMovie';
+import NotFound from './pages/notFound/NotFound';
+import routes from '../routes';
+import Loader from './spinner/Spinner';
+// import HomePage from './pages/homePages/HomePage';
+// import MovieDetailsPage from './pages/movieDetailsPage/MovieDetailsPage';
+// import MoviesPage from '../components/pages/moviesPage/MoviesPage';
+
+const HomePage = lazy(() =>
+  import('./pages/homePages/HomePage' /* webpackChunkName: "home-page" */),
+);
+const MoviesPage = lazy(() =>
+  import('./pages/moviesPage/MoviesPage' /* webpackChunkName: "movies-page" */),
+);
+const MovieDetailsPage = lazy(() =>
+  import(
+    './pages/movieDetailsPage/MovieDetailsPage' /* webpackChunkName: "movies-Details-page" */
+  ),
+);
 
 export default function App() {
   return (
     <>
-      <ul className="navigation">
-        <li>
-          <NavLink
-            exact
-            to="/"
-            className="NavLink"
-            activeClassName="NavLink-active"
-          >
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/movies"
-            className="NavLink"
-            activeClassName="NavLink-active"
-          >
-            Movies
-          </NavLink>
-        </li>
-      </ul>
-
-      <Switch>
-        <Route exact path="/" component={HomePage}></Route>
-        <Route path="/movie/:movieID" component={MovieDetailsPage}></Route>
-        <Route exact path="/movies" component={MoviesPage}></Route>
-        <Route component={NotFound}></Route>
-      </Switch>
+      <AppBarMovie></AppBarMovie>
+      <Suspense
+        fallback={
+          <div>
+            <Loader></Loader>
+          </div>
+        }
+      >
+        <Switch>
+          <Route exact path={routes.home} component={HomePage}></Route>
+          <Route exact path={routes.movies} component={MoviesPage}></Route>
+          <Route path={routes.movieDetals} component={MovieDetailsPage}></Route>
+          <Route component={NotFound}></Route>
+        </Switch>
+      </Suspense>
     </>
   );
 }
-
-// export default function App() {
-//   return (
-//     <>
-//       <ul>
-//         <li>
-//           <NavLink
-//             exact
-//             to="/"
-//             className="NavLink"
-//             activeClassName="NavLink-active"
-//           >
-//             Home
-//           </NavLink>
-//         </li>
-//         <li>
-//           <NavLink
-//             to="/authors"
-//             className="NavLink"
-//             activeClassName="NavLink-active"
-//           >
-//             Autthors
-//           </NavLink>
-//         </li>
-//         <li>
-//           <NavLink
-//             to="/books"
-//             className="NavLink"
-//             activeClassName="NavLink-active"
-//           >
-//             Books
-//           </NavLink>
-//         </li>
-//       </ul>
-
-//       <Switch>
-//         <Route exact path="/" component={HomeView}></Route>
-//         <Route path="/authors" component={AuthorsView}></Route>
-//         <Route exact path="/books" component={BooksView}></Route>
-//         <Route path="/books/:bookID" component={BookDetailsView}></Route>
-//         <Route component={NotFound} />
-//       </Switch>
-//     </>
-//   );
-// }
-
-// {
-//        "KEY": "4fbdbd8abdbcde78896e194e86813212",
-//        "baseURL": "https://api.themoviedb.org/3/"
-
-// }

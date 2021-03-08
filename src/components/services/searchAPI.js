@@ -1,14 +1,31 @@
 import axios from 'axios';
 
-const getMovies = async movie => {
+export const getTrendingMovies = () => {
   try {
-    const response = await axios.get(
-      `${process.env.REACT_APP_DATA_BASE_BASEURL}`,
+    return axios.get(
+      `${process.env.REACT_APP_DATA_BASEURL}/trending/movie/day?api_key=${process.env.REACT_APP_KEY}`,
     );
-    return response.data;
   } catch (error) {
     console.log(error);
   }
 };
 
-export { getMovies };
+export const getSearchMovies = query => {
+  try {
+    axios.get(
+      `${process.env.REACT_APP_DATA_BASEURL}/search/movie?api_key=${process.env.REACT_APP_KEY}&query=${query}`,
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getMoviesDetails = movieID => {
+  try {
+    axios.get(
+      `${process.env.REACT_APP_DATA_BASEURL}/movie/${movieID}?api_key=${process.env.REACT_APP_KEY}`,
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -1,0 +1,28 @@
+.box {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to bottom, #33cccc 0%, #00cc99 100%);
+}
+
+.navigation {
+  padding: 0;
+  width: 300px;
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 70px;
+}
+
+.NavLink {
+  font-size: 20px;
+  color: currentColor;
+}
+
+.NavLinkActive {
+  color: red;
+}
+
+.navItem {
+}

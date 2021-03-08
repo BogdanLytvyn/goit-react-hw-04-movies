@@ -1,4 +1,6 @@
 body {
+  margin: 0;
+  padding: 0;
   background-color: #fff;
   color: #212121;
   line-height: 1.5;
@@ -12,18 +14,25 @@ img {
   height: auto;
 }
 
-.NavLink {
-  font-size: 20px;
-  color: currentColor;
+.searchFom {
+  margin-top: 30px;
 }
 
-.NavLink-active {
-  color: red;
+.classes .button {
+  margin-top: 100px;
 }
-.navigation {
+// ===========CardMovie===========
+.cardMovie {
   display: flex;
-  list-style: none;
+  align-items: center;
+  width: 800px;
 }
-.navigation .NavLink {
-  margin-right: 100px;
+
+.overview {
+  font-size: 10px;
+}
+
+.btn {
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
