@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+import style from './Reviews.module.scss';
 
 export default class Reviews extends Component {
   state = {
@@ -22,7 +23,7 @@ export default class Reviews extends Component {
     console.log(results);
 
     return (
-      <>
+      <div className={style.box}>
         {results.length > 0 ? (
           <ul>
             {results.map(review => (
@@ -36,7 +37,7 @@ export default class Reviews extends Component {
           <p>We don't have any reviews for this movie</p>
         )}
         {results === 0 && <p>We don't have any reviews for this movie</p>}
-      </>
+      </div>
     );
   }
 }

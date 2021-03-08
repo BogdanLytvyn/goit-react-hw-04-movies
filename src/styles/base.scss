@@ -22,17 +22,35 @@ img {
   margin-top: 100px;
 }
 // ===========CardMovie===========
-.cardMovie {
-  display: flex;
-  align-items: center;
-  width: 800px;
-}
-
-.overview {
-  font-size: 10px;
-}
 
 .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 30px;
   margin-bottom: 10px;
+  width: 120px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.button-back {
+  display: flex;
+  justify-content: center;
+}
+.list-details {
+  display: flex;
+  justify-content: center;
+}
+
+.list-details-item {
+  margin-top: 20px;
+  margin-right: 30px;
+  font-size: 26px;
 }
