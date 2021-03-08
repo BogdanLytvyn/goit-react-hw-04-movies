@@ -1,0 +1,42 @@
+.box {
+  display: flex;
+}
+
+.list {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.title {
+  margin-top: 10px;
+  padding-left: 5px;
+  font-size: 16px;
+}
+.role {
+  padding-left: 5px;
+  font-size: 12px;
+}
+
+.listItem {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  color: black;
+}
+.pic {
+  display: block;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+}

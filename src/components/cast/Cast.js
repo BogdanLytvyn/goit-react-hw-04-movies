@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+import style from './Cast.module.scss';
 
 export default class Cast extends Component {
   state = {
@@ -17,22 +18,23 @@ export default class Cast extends Component {
   render() {
     const { cast } = this.state;
     return (
-      <>
-        <ul>
+      <div className={style.box}>
+        <ul className={style.list}>
           {cast.map(movie => (
-            <li key={uuidv4()}>
+            <li key={uuidv4()} className={style.listItem}>
               {movie.profile_path && (
                 <img
+                  className={style.pic}
                   src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.profile_path}`}
                   alt="Photo title"
                 />
               )}
-              <h2>{movie.name}</h2>
-              <h3>{movie.character}</h3>
+              <h2 className={style.title}>{movie.name}</h2>
+              <h3 className={style.role}>{movie.character}</h3>
             </li>
           ))}
         </ul>
-      </>
+      </div>
     );
 
     // return <div></div>;

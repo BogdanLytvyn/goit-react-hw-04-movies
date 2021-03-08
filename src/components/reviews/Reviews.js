@@ -25,11 +25,11 @@ export default class Reviews extends Component {
     return (
       <div className={style.box}>
         {results.length > 0 ? (
-          <ul>
+          <ul className={style.list}>
             {results.map(review => (
               <li key={uuidv4()}>
-                <h3>{review.author}</h3>
-                <p>{review.content}</p>
+                <h3 className={style.title}>{review.author}</h3>
+                <p className={style.content}>{review.content}</p>
               </li>
             ))}
           </ul>
