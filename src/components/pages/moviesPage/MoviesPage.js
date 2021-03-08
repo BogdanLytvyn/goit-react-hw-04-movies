@@ -15,13 +15,6 @@ export default class MoviesPage extends Component {
     if (prevProps.location.search !== this.props.location.search) {
       this.onQuerySearch(this.state.query);
     }
-
-    //   const { query } = this.state;
-    //   const res = await axios.get(
-    //     `${process.env.REACT_APP_DATA_BASEURL}/search/movie?api_key=${process.env.REACT_APP_KEY}&query=${query}`,
-    //   );
-    //   this.setState({ movies: res.data.results });
-    // }
   }
   componentDidMount() {
     const { query } = qs.parse(this.props.location.search);
@@ -55,12 +48,11 @@ export default class MoviesPage extends Component {
     this.props.history.push({
       pathname: this.props.location.pathname,
       search: `query=${this.state.query}`,
-    }); // this.setState({ query: this.state.searchQuery });
+    });
   };
 
   render() {
     const { query, movies, total_pages } = this.state;
-    console.log(movies);
     return (
       <div className="formBox">
         <form className={style.formMovie} onSubmit={this.handlerSubmit}>

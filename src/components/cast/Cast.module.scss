@@ -21,6 +21,7 @@
 }
 
 .listItem {
+  width: 200px;
   border: 1px solid black;
   border-radius: 10px;
   margin: 40px;
@@ -32,6 +33,7 @@
   font-weight: 500;
   line-height: 16px;
   color: black;
+  background-color: white;
 }
 .pic {
   display: block;

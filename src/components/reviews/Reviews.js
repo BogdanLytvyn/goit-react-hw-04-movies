@@ -9,17 +9,14 @@ export default class Reviews extends Component {
   };
   async componentDidMount() {
     const { movieID } = this.props.match.params;
-    console.log(movieID);
     const res = await axios.get(
       `${process.env.REACT_APP_DATA_BASEURL}/movie/${movieID}/reviews?api_key=${process.env.REACT_APP_KEY}`,
     );
-    console.log(res.data);
     this.setState({ ...res.data });
   }
 
   render() {
     const { results } = this.state;
-    console.log(results);
 
     return (
       <div className={style.box}>

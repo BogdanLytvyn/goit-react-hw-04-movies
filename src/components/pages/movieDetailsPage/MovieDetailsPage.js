@@ -65,14 +65,14 @@ export default class MovieDetailsPage extends Component {
         <ul className="list-details">
           <li className="list-details-item">
             <Link to={`${match.url}/cast`}>
-              <button type="button" class="btn btn-outline-dark">
+              <button type="button" className="btn btn-outline-dark">
                 Cast
               </button>
             </Link>
           </li>
           <li className="list-details-item">
             <Link to={`${match.url}/reviews`}>
-              <button type="button" class="btn btn-outline-dark">
+              <button type="button" className="btn btn-outline-dark">
                 Reviews
               </button>
             </Link>
