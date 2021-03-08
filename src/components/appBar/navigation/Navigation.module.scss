@@ -1,7 +1,8 @@
 .box {
   display: flex;
   justify-content: center;
-  background: linear-gradient(to bottom, #33cccc 0%, #00cc99 100%);
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
 }
 
 .navigation {
@@ -12,17 +13,14 @@
   justify-content: space-around;
   align-items: center;
 
-  height: 70px;
+  height: 100px;
 }
 
 .NavLink {
   font-size: 20px;
-  color: currentColor;
+  color: white;
 }
 
 .NavLinkActive {
   color: red;
-}
-
-.navItem {
 }

@@ -1,0 +1,31 @@
+// .box {
+//   display: flex;
+//   justify-content: center;
+// }
+
+.buttonBox {
+  display: block;
+  padding-left: 400px;
+  margin-right: 400px;
+
+  justify-content: center;
+}
+
+.link {
+  list-style: none;
+}
+
+.buttonBack {
+  display: flex;
+  justify-content: center;
+}
+.listDetails {
+  display: flex;
+  justify-content: center;
+}
+
+.listDetailsItem {
+  margin-top: 20px;
+  margin-right: 30px;
+  font-size: 26px;
+}

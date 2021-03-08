@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
 import { getTrendingMovies } from '../../services/searchAPI';
 import MovieList from '../../movieList/MovieList';
 import style from './HomePage.module.scss';

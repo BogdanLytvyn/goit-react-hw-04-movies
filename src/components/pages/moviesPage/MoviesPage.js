@@ -1,43 +1,71 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import MovieList from '../../movieList/MovieList';
 import axios from 'axios';
+import qs from 'query-string';
+import style from './MoviesPage.module.scss';
 
 export default class MoviesPage extends Component {
   state = {
-    searchQuery: '',
+    total_pages: 1,
     query: '',
     movies: [],
   };
 
-  async componentDidUpdate(prevProps, prevState) {
-    if (prevState.query !== this.state.query) {
-      const { query } = this.state;
-      const res = await axios.get(
-        `${process.env.REACT_APP_DATA_BASEURL}/search/movie?api_key=${process.env.REACT_APP_KEY}&query=${query}`,
-      );
-      this.setState({ movies: res.data.results });
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.search !== this.props.location.search) {
+      this.onQuerySearch(this.state.query);
+    }
+
+    //   const { query } = this.state;
+    //   const res = await axios.get(
+    //     `${process.env.REACT_APP_DATA_BASEURL}/search/movie?api_key=${process.env.REACT_APP_KEY}&query=${query}`,
+    //   );
+    //   this.setState({ movies: res.data.results });
+    // }
+  }
+  componentDidMount() {
+    const { query } = qs.parse(this.props.location.search);
+    if (query) {
+      this.onQuerySearch(query);
     }
   }
 
+  onQuerySearch = async query => {
+    const res = await axios.get(
+      `${process.env.REACT_APP_DATA_BASEURL}/search/movie?api_key=${process.env.REACT_APP_KEY}&query=${query}`,
+    );
+
+    this.setState({
+      movies: res.data.results,
+      total_pages: res.data.total_pages,
+    });
+  };
+
   handlerInput = e => {
-    this.setState({ searchQuery: e.target.value });
+    if (!e.target.value) {
+      this.setState({
+        total_pages: 1,
+      });
+    }
+    this.setState({ query: e.target.value });
   };
 
   handlerSubmit = e => {
     e.preventDefault();
-    this.setState({ query: this.state.searchQuery });
+    this.props.history.push({
+      pathname: this.props.location.pathname,
+      search: `query=${this.state.query}`,
+    }); // this.setState({ query: this.state.searchQuery });
   };
 
   render() {
-    const { searchQuery, movies } = this.state;
+    const { query, movies, total_pages } = this.state;
     console.log(movies);
     return (
-      <>
-        <form className="searchFom" onSubmit={this.handlerSubmit}>
-          <TextField
+      <div className="formBox">
+        <form className={style.formMovie} onSubmit={this.handlerSubmit}>
+          <input
+            className="inputMovie"
             id="standard-search"
             label="Search field"
             type="search"
@@ -45,21 +73,20 @@ export default class MoviesPage extends Component {
             autoFocus
             placeholder="movie name"
             aria-label="Search"
-            value={searchQuery}
+            value={query}
             onChange={this.handlerInput}
           />
-          <Button
+          <button
             variant="outlined"
             color="primary"
-            className="buttonForm"
-            onSubmit={this.handlerSubmit}
+            className="buttonMovie"
             type="submit"
           >
             Search
-          </Button>
+          </button>
         </form>
         <MovieList movies={this.state.movies}></MovieList>
-      </>
+      </div>
     );
   }
 }

@@ -36,7 +36,5 @@ export default class Cast extends Component {
         </ul>
       </div>
     );
-
-    // return <div></div>;
   }
 }

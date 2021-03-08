@@ -8,7 +8,6 @@ export default class Reviews extends Component {
     results: [],
   };
   async componentDidMount() {
-    // console.log(this.state.movieID);
     const { movieID } = this.props.match.params;
     console.log(movieID);
     const res = await axios.get(

@@ -5,7 +5,7 @@ import Reviews from '../../reviews/Reviews';
 import axios from 'axios';
 import CardMovie from '../../cardMovie/CardMovie';
 import routes from '../../../routes';
-import style from './MovieDetailsPage.scss';
+import style from './MovieDetailsPage.module..scss';
 
 export default class MovieDetailsPage extends Component {
   state = {
@@ -47,7 +47,7 @@ export default class MovieDetailsPage extends Component {
 
     return (
       <div className={style.box}>
-        <div className="button-back">
+        <div className="buttonBack">
           <button
             type="button"
             className="btn btn-outline-danger"
@@ -64,10 +64,18 @@ export default class MovieDetailsPage extends Component {
         </div>
         <ul className="list-details">
           <li className="list-details-item">
-            <Link to={`${match.url}/cast`}>cast</Link>
+            <Link to={`${match.url}/cast`}>
+              <button type="button" class="btn btn-outline-dark">
+                Cast
+              </button>
+            </Link>
           </li>
           <li className="list-details-item">
-            <Link to={`${match.url}/reviews`}>reviews</Link>
+            <Link to={`${match.url}/reviews`}>
+              <button type="button" class="btn btn-outline-dark">
+                Reviews
+              </button>
+            </Link>
           </li>
         </ul>
         <div>

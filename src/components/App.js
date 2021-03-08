@@ -4,9 +4,6 @@ import AppBarMovie from './appBar/AppBarMovie';
 import NotFound from './pages/notFound/NotFound';
 import routes from '../routes';
 import Loader from './spinner/Spinner';
-// import HomePage from './pages/homePages/HomePage';
-// import MovieDetailsPage from './pages/movieDetailsPage/MovieDetailsPage';
-// import MoviesPage from '../components/pages/moviesPage/MoviesPage';
 
 const HomePage = lazy(() =>
   import('./pages/homePages/HomePage' /* webpackChunkName: "home-page" */),
