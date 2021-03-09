@@ -77,7 +77,6 @@ export default class MoviesPage extends Component {
             Search
           </button>
         </form>
-        Copy
         <MovieList movies={this.state.movies}></MovieList>
       </div>
     );
