@@ -52,7 +52,7 @@ export default class MoviesPage extends Component {
   };
 
   render() {
-    const { query, movies, total_pages } = this.state;
+    const { query } = this.state;
     return (
       <div className="formBox">
         <form className={style.formMovie} onSubmit={this.handlerSubmit}>
@@ -77,6 +77,7 @@ export default class MoviesPage extends Component {
             Search
           </button>
         </form>
+        Copy
         <MovieList movies={this.state.movies}></MovieList>
       </div>
     );

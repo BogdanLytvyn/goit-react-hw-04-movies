@@ -15,7 +15,6 @@ export default class HomePage extends Component {
   }
 
   render() {
-    const { movies } = this.state;
     return (
       <>
         <div className={style.boxCardList}>

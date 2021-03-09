@@ -1,7 +1,21 @@
-import HomePage from '../components/pages/homePages/HomePage';
-import MoviesPage from '../components/pages/moviesPage/MoviesPage';
-import MovieDetailsPage from '../components/pages/movieDetailsPage/MovieDetailsPage';
+import { lazy } from 'react';
 import NotFound from '../components/pages/notFound/NotFound';
+
+const HomePage = lazy(() =>
+  import(
+    '../components/pages/homePages/HomePage' /* webpackChunkName: "home-page" */
+  ),
+);
+const MoviesPage = lazy(() =>
+  import(
+    '../components/pages/moviesPage/MoviesPage' /* webpackChunkName: "movies-page" */
+  ),
+);
+const MovieDetailsPage = lazy(() =>
+  import(
+    '../components/pages/movieDetailsPage/MovieDetailsPage' /* webpackChunkName: "movies-Details-page" */
+  ),
+);
 
 export const routes = [
   {
