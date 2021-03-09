@@ -39,7 +39,7 @@ export default class MovieDetailsPage extends Component {
 
   handleGoBack = () => {
     const { location, history } = this.props;
-    history.push(location?.state?.from || routes.home);
+    history.push(location?.state?.from || '/');
   };
 
   render() {

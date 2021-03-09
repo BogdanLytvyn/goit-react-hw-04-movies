@@ -2,8 +2,9 @@ import { React, Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import AppBarMovie from './appBar/AppBarMovie';
 import NotFound from './pages/notFound/NotFound';
-import routes from '../routes';
+import { routes } from '../routes';
 import Loader from './spinner/Spinner';
+import { v4 as uuidv4 } from 'uuid';
 
 const HomePage = lazy(() =>
   import('./pages/homePages/HomePage' /* webpackChunkName: "home-page" */),
@@ -29,10 +30,14 @@ export default function App() {
         }
       >
         <Switch>
-          <Route exact path={routes.home} component={HomePage}></Route>
-          <Route path={routes.movies} component={MoviesPage}></Route>
-          <Route path={routes.movieDetals} component={MovieDetailsPage}></Route>
-          <Route component={NotFound}></Route>
+          {routes.map(({ path, component, exact }) => (
+            <Route
+              exact={exact}
+              path={path}
+              component={component}
+              key={uuidv4()}
+            />
+          ))}
         </Switch>
       </Suspense>
     </>

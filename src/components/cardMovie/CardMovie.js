@@ -2,7 +2,6 @@ import React from 'react';
 import style from './CardMovie.module.scss';
 
 function CardMovie({ movieCard, release_datere }) {
-  console.groupEnd(movieCard);
   return (
     <div className={style.box}>
       <div className={style.cardMovie}>
