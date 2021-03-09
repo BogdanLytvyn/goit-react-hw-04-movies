@@ -1,8 +1,7 @@
 import { React, Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import AppBarMovie from './appBar/AppBarMovie';
-import NotFound from './pages/notFound/NotFound';
-import { routes } from '../routes';
+import { routes } from '../routes/routes';
 import Loader from './spinner/Spinner';
 import { v4 as uuidv4 } from 'uuid';
 

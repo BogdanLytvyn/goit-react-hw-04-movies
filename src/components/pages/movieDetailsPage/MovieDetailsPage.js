@@ -4,7 +4,6 @@ import Cast from '../../cast/Cast';
 import Reviews from '../../reviews/Reviews';
 import axios from 'axios';
 import CardMovie from '../../cardMovie/CardMovie';
-import routes from '../../../routes';
 import style from './MovieDetailsPage.module..scss';
 
 export default class MovieDetailsPage extends Component {

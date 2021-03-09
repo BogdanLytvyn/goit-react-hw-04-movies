@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import routes from '../../../routes';
 import style from './Navigation.module.scss';
-import { mainRoutes } from '../../../routes';
+import { mainRoutes } from '../../../routes/mainRoutes';
 import { v4 as uuidv4 } from 'uuid';
 
 export default function Navigation() {
@@ -14,8 +13,8 @@ export default function Navigation() {
             <NavLink
               exact={exact}
               to={to}
-              className="navLink"
-              activeClassName="activeNavLink"
+              className={style.navLink}
+              activeClassName={style.activeNavLink}
             >
               {name}
             </NavLink>
