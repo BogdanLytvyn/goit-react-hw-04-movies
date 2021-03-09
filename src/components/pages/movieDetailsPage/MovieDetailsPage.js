@@ -20,6 +20,7 @@ export default class MovieDetailsPage extends Component {
 
   async componentDidMount() {
     const { movieID } = this.props.match.params;
+
     const res = await axios.get(
       `${process.env.REACT_APP_DATA_BASEURL}/movie/${movieID}?api_key=${process.env.REACT_APP_KEY}`,
     );
@@ -42,9 +43,8 @@ export default class MovieDetailsPage extends Component {
   };
 
   render() {
-    const { match } = this.props;
+    const { match, location } = this.props;
     const release_datere = this.state.release_date.substring(0, 4);
-
     return (
       <div className={style.box}>
         <div className="buttonBack">
@@ -64,14 +64,28 @@ export default class MovieDetailsPage extends Component {
         </div>
         <ul className="list-details">
           <li className="list-details-item">
-            <Link to={`${match.url}/cast`}>
+            <Link
+              to={{
+                pathname: `${match.url}/cast`,
+                state: {
+                  from: location?.state?.from,
+                },
+              }}
+            >
               <button type="button" className="btn btn-outline-dark">
                 Cast
               </button>
             </Link>
           </li>
           <li className="list-details-item">
-            <Link to={`${match.url}/reviews`}>
+            <Link
+              to={{
+                pathname: `${match.url}/reviews`,
+                state: {
+                  from: location?.state?.from,
+                },
+              }}
+            >
               <button type="button" className="btn btn-outline-dark">
                 Reviews
               </button>

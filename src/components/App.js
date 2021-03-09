@@ -30,7 +30,7 @@ export default function App() {
       >
         <Switch>
           <Route exact path={routes.home} component={HomePage}></Route>
-          <Route exact path={routes.movies} component={MoviesPage}></Route>
+          <Route path={routes.movies} component={MoviesPage}></Route>
           <Route path={routes.movieDetals} component={MovieDetailsPage}></Route>
           <Route component={NotFound}></Route>
         </Switch>
